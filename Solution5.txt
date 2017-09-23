@@ -1,0 +1,11 @@
+When the project is using Spring 4.3  and Hibernate 5.2, how to write the JUnit test without bounded with concrete DB closely. In other words, How to mock DB in JUnit test for service method.  If not possible give the reason else list cases for the different scenario. 
+
+1) Create a DAO class 
+2) Chnage the property of hibernate to populate the tables provided by DAO as:
+<prop key="hibernate.hbm2ddl.import_files">import.sql</prop>
+where the import.sql file contains the records that need to be populated in the table as:
+insert into Employee (empId,emp_name) values (1,'Emp test');
+
+
+Integration with Spring and JUnit:
+1) Use a SpringJUnit4ClassRunner
